@@ -2,9 +2,6 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 
-# Debug Streamlit
-# st.write(st.secrets["connections"]["snowflake"]["user"])
-
 # Write directly to the app
 st.title(f"Customize Your Smoothie :coffee: {st.__version__}")
 st.write(
@@ -45,3 +42,8 @@ time_to_insert = st.button('Submit Order')
 if time_to_insert:
     session.sql(my_insert_stmt).collect()
     st.success('Your Smoothie is ordered!', icon="✅")
+
+# New section to display smoothiefroot nutrition information
+import requests  
+smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+st.text(smoothiefroot_response.json())
