@@ -3,7 +3,7 @@ import streamlit as st
 from snowflake.snowpark.functions import col
 
 # Debug Streamlit
-st.write(st.secrets["connections"]["snowflake"]["user"])
+# st.write(st.secrets["connections"]["snowflake"]["user"])
 
 # Write directly to the app
 st.title(f"Customize Your Smoothie :coffee: {st.__version__}")
@@ -37,7 +37,7 @@ if ingredients_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
                     values ('""" + ingredients_string + """','""" + name_on_order + """')"""
 
-st.write(my_insert_stmt)
+# st.write(my_insert_stmt)
 # st.stop()
 
 time_to_insert = st.button('Submit Order')
