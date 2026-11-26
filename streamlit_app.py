@@ -2,6 +2,9 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 
+# Debug Streamlit
+st.write(st.secrets["connections"]["snowflake"]["user"])
+
 # Write directly to the app
 st.title(f"Customize Your Smoothie :coffee: {st.__version__}")
 st.write(
